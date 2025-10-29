@@ -10,7 +10,7 @@ Invoke-RestMethod -Uri "http://localhost:8000/ingest?collection=docs" -Method Po
 
 ## Invoke questions
 ```powershell
-Invoke-RestMethod -Uri "http://localhost:8000/query" -Method Post -Body '{"query":"cite references for watchdog timer","top_k":4}' -ContentType "application/json"
+Invoke-RestMethod -Uri "http://localhost:8000/query" -Method Post -Body '{"query":"what section describes the watchdog timer?","top_k":4}' -ContentType "application/json"
 ```
 
 ## Reset DB
