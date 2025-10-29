@@ -1,9 +1,18 @@
 from fastapi import FastAPI, Query
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import ORJSONResponse
 from pydantic import BaseModel
 from rag_utils import ingest_dir, search, answer_with_rag, COLLECTION, DATA_DIR
 
 app = FastAPI(default_response_class=ORJSONResponse)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 class QueryReq(BaseModel):
